@@ -35,14 +35,16 @@ The following endpoint is currently available:
 
 Endpoint for item filters is cached to enable faster responses and also throttled by the default Laravel middleware to 60 requests per minute.
 
-
-## Static analysis and code style
-
-Larastan - wrapper around PHPStan - is used for static analysis and Laravel Pint is used for code style fixes.
-
-
 ## Localization
 
 Localization is done using the `Accept-Language` header and using the default Laravel localization strategies. 
 
 We make sure that only `en` and `de` are supported and fall back to `en`. 
+
+## Static analysis and code style
+
+Larastan - wrapper around PHPStan - is used for static analysis and Laravel Pint is used for code style fixes. 
+
+## Github actions
+
+After each push to GitHub, action is triggered to run tests, linting and static analysis.
