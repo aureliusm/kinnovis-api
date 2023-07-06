@@ -66,9 +66,9 @@ class ItemFiltersTest extends TestCase
                                 ],
                             ],
                         ],
-                        'unitType' => [
+                        'unitTypeSize' => [
                             'type' => 'multiselect',
-                            'label' => 'Unit type',
+                            'label' => 'Unit type size',
                             'options' => [
                                 [
                                     'value' => 10010,
@@ -140,9 +140,9 @@ class ItemFiltersTest extends TestCase
         $response = $this->get('/api/v1/items/filters');
         $response->assertStatus(200)
             ->assertJsonFragment([
-                'unitType' => [
+                'unitTypeSize' => [
                     'type' => 'multiselect',
-                    'label' => 'Unit type',
+                    'label' => 'Unit type size',
                     'options' => [],
                 ],
             ]);

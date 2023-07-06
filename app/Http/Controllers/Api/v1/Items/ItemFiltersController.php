@@ -38,9 +38,9 @@ class ItemFiltersController extends Controller
                     labelField: 'name'
                 ),
             ],
-            'unitType' => [
+            'unitTypeSize' => [
                 'type' => FilterType::MULTISELECT,
-                'label' => __('Unit type'),
+                'label' => __('Unit type size'),
                 'options' => $this->filterOptionsTransformer->transformCollection(
                     // We make sure to get only unit types that have at least one unit so we show
                     collection: $this->unitTypeRepository->getUnitTypesWithUnits(),
