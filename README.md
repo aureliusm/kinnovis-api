@@ -22,7 +22,7 @@ Also note that you should pass the `Accept: application/json` header to let Lara
 
 ## Authentication
 
-As I am not sure in which situation the REST API will be used, I decided to go here with Laravel Sanctum as it offers authentication for SPAs, API token authentication and mobile app authentication out of the box. It is a secure and testes solution.
+As I am not sure in which situation the REST API will be used, I decided to go here with Laravel Sanctum as it offers authentication for SPAs, API token authentication and mobile app authentication out of the box. It is a secure and tested solution.
 
 ## API endpoints, versioning and caching
 
