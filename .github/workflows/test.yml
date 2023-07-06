@@ -33,3 +33,16 @@ jobs:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
       run: vendor/bin/phpunit
+
+  phplint:
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v3
+        - name: "laravel-pint"
+          uses: aglipanci/laravel-pint-action@2.0.0
+          with:
+            preset: laravel
+            verboseMode: true
+            testMode: true
+            pintVersion: 1.8.0
+            onlyDirty: true
