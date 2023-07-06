@@ -1,0 +1,9 @@
+{
+    "Search": "Suchen",
+    "Location": "Standort",
+    "Unit type": "Einheitstyp",
+    "Status": "Status",
+    "vacant": "Frei",
+    "maintenance": "Wartungsarbeiten",
+    "blocked": "Blockiert"
+}
