@@ -35,6 +35,10 @@ The following endpoints are currently available:
 
 Endpoint for item filters is cached to enable faster responses and also throttled by the default Laravel middleware to 60 requests per minute.
 
+## API responses
+
+A special `ApiResponse` class is used for all json responses to make sure the structure of the response is the same in all cases.
+
 ## Localization
 
 Localization is done using the `Accept-Language` header and using the default Laravel localization strategies. 
@@ -44,6 +48,10 @@ We make sure that only `en` and `de` are supported and fall back to `en`.
 ## Static analysis and code style
 
 Larastan - wrapper around PHPStan - is used for static analysis and Laravel Pint is used for code style fixes. 
+
+## Tests
+
+There are appropriate feature and unit tests implemented to make sure the api is working as expected.
 
 ## Github actions
 
