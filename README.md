@@ -28,7 +28,7 @@ As I am not sure in which situation the REST API will be used, I decided to go h
 
 This REST API is versioned with v1, v2 etc. So all current api endpointes are prefixed with `/api/v1`.
 
-The following endpoint is currently available:
+The following endpoints are currently available:
 
 - `/api/v1/login` <- Demo login for testing purposes
 - `/api/v1/items/filters` <- Returns a JSON representation of available filters
