@@ -24,7 +24,7 @@ class LoginTest extends TestCase
 
         $response->assertStatus(200)
             ->assertJsonFragment([
-                'status' => 'OK',
+                'status' => 'Success',
             ]);
     }
 
@@ -37,6 +37,15 @@ class LoginTest extends TestCase
         ]);
 
         $response->assertStatus(422)
-            ->assertJsonValidationErrors('email');
+            ->assertJson([
+                'status' => 'Validation error',
+                'locale' => 'en',
+                'errors' => [
+                    [
+                        'field' => 'email',
+                        'message' => 'The provided credentials are incorrect.',
+                    ],
+                ],
+            ]);
     }
 }

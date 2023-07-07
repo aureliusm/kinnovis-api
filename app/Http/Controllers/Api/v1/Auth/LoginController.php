@@ -4,14 +4,14 @@ namespace App\Http\Controllers\Api\v1\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
+use App\Http\Responses\ApiResponse;
 use App\Models\User;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
-    public function __invoke(LoginRequest $request): JsonResponse
+    public function __invoke(LoginRequest $request): ApiResponse
     {
         $user = User::where('email', $request->email)->first();
 
@@ -30,11 +30,6 @@ class LoginController extends Controller
         /** @var string $token */
         $token = $user->createToken($deviceName)->plainTextToken;
 
-        return response()->json([
-            'status' => 'OK',
-            'data' => [
-                'token' => $token,
-            ],
-        ]);
+        return new ApiResponse(['token' => $token]);
     }
 }

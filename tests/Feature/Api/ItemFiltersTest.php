@@ -45,7 +45,7 @@ class ItemFiltersTest extends TestCase
         $response->assertStatus(200)
             ->assertJson(
                 [
-                    'status' => 'OK',
+                    'status' => 'Success',
                     'locale' => 'en',
                     'data' => [
                         'search' => [

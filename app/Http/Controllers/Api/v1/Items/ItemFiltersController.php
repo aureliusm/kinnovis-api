@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Api\v1\Items;
 
 use App\Enums\FilterType;
 use App\Http\Controllers\Controller;
+use App\Http\Responses\ApiResponse;
 use App\Http\Transformers\FilterOptionsTransformer;
 use App\Models\Unit;
 use App\Repositories\LocationRepositoryInterface;
 use App\Repositories\UnitTypeRepositoryInterface;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class ItemFiltersController extends Controller
@@ -20,10 +20,10 @@ class ItemFiltersController extends Controller
     ) {
     }
 
-    public function __invoke(Request $request): JsonResponse
+    public function __invoke(Request $request): ApiResponse
     {
-        // This could be extracted to a separate Filter service, but for current scope it would be a premature optimization
-        $fields = [
+        // This could be extracted to a separate Filter service that would take care of generating these fields, but for current scope it would be a premature optimization
+        $filters = [
             'search' => [
                 'type' => FilterType::FULLTEXT_SEARCH,
                 'label' => __('Search'),
@@ -55,10 +55,6 @@ class ItemFiltersController extends Controller
             ],
         ];
 
-        return response()->json([
-            'status' => 'OK',
-            'locale' => app()->getLocale(),
-            'data' => $fields,
-        ]);
+        return new ApiResponse($filters);
     }
 }

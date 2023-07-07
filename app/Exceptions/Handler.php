@@ -2,7 +2,10 @@
 
 namespace App\Exceptions;
 
+use App\Http\Responses\ApiResponse;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Validation\ValidationException;
+use Symfony\Component\HttpFoundation\Response;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -26,5 +29,20 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+    }
+
+    protected function invalidJson($request, ValidationException $exception): ApiResponse
+    {
+        $errors = [];
+        foreach ($exception->errors() as $field => $messages) {
+            foreach ($messages as $message) {
+                $errors[] = [
+                    'field' => $field,
+                    'message' => $message,
+                ];
+            }
+        }
+
+        return new ApiResponse($errors, Response::HTTP_UNPROCESSABLE_ENTITY);
     }
 }
